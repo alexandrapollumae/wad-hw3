@@ -1,10 +1,18 @@
 <template>
-  <section class="main-container"></section>
+  <section class="main-container">
+    <Header/>
+
+  </section>
 </template>
 
 <script>
+import Header from "@/components/Header";
+
 export default {
-name: "Browse"
+  name: "Browse",
+  components: {
+    Header
+  }
 }
 </script>
 
