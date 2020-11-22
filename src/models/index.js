@@ -14,11 +14,11 @@ const actions = {}
 //to handle mutations
 const mutations = {}
 
-//export store module
+//export models module
 export default {
     state,
     getters,
     actions,
     mutations
 }
-/** we have just created a boiler plate for our vuex store module**/
+/** we have just created a boiler plate for our vuex models module**/

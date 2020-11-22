@@ -2,7 +2,7 @@
   <header>
     <nav>
       <div class="logo-container">
-        <img src="res/images/logo.png" alt="postIt">
+        <img src="assets/logo.png" alt="postIt">
       </div>
       <div class="search-container">
         <input type="text" name="search"><button type="button">Search</button>
@@ -14,7 +14,7 @@
           <span id="user-email"></span>
           <span class="separator"></span>
           <span>
-              <a href="browse.html">Browse</a>
+              <a href="#/login">Browse</a>
             </span>
           <span class="separator"></span>
           <span>
@@ -29,7 +29,7 @@
 
 <script>
 export default {
-name: "Header"
+  name: "Header"
 }
 </script>
 

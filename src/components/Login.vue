@@ -14,7 +14,7 @@
       </div>
       <div>
         <h3>Please Log In</h3>
-        <form action="index.html" method="post">
+        <form action="Home.vue" method="post">
           <div>
             <input type="text" name="email" placeholder="Email">
           </div>
@@ -37,7 +37,7 @@
 
 <script>
 export default {
-name: "Login"
+  name: "Login"
 }
 </script>
 
