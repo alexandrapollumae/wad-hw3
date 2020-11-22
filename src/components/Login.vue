@@ -16,13 +16,15 @@
         <h3>Please Log In</h3>
         <form>
           <div>
-            <input type="text" name="email" placeholder="Email">
+            <input type="text" placeholder="Email">
           </div>
           <div>
-            <input type="password" name="password" placeholder="Password">
+            <input type="password" placeholder="Password">
           </div>
           <div>
-            <button class="button" type="submit" name="login">Log In</button>
+            <router-link to="/">
+              <button class="button">Log In</button>
+            </router-link>
           </div>
           <div>
             <small>

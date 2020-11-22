@@ -2,10 +2,13 @@
   <header>
     <nav>
       <div class="logo-container">
-        <img src="assets/logo.png" alt="postIt">
+        <router-link to="/">
+          <img src="../assets/logo.png" alt="postIt">
+        </router-link>
       </div>
       <div class="search-container">
-        <input type="text" name="search"><button type="button">Search</button>
+        <input type="text" name="search">
+        <button type="button">Search</button>
       </div>
       <div class="avatar-container">
         <img class="avatar">
@@ -14,12 +17,16 @@
           <span id="user-email"></span>
           <span class="separator"></span>
           <span>
-              <a href="#/login">Browse</a>
+            <router-link to="/browse">
+              <a>Browse</a>
+            </router-link>
             </span>
           <span class="separator"></span>
           <span>
-              <a href="login.html">Log Out</a>
-            </span>
+            <router-link to="/login">
+              <a>Log Out</a>
+            </router-link>
+          </span>
         </div>
       </div>
     </nav>
