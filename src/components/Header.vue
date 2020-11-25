@@ -96,4 +96,6 @@ export default {
     margin-right: 15px;
     text-align: right;
   }
+
+
 </style>

@@ -8,11 +8,20 @@ Vue.use(Vuex);
 
 //to handle state
 const state = {
-    posts: []
+    posts: [],
+    users: '',
+    profiles: []
 }
 
 //to handle state
-const getters = {}
+const getters = {
+    getPosts: (state) => (id) => {
+        return state.posts[id]
+    },
+    getProfiles: (state) => (id) => {
+        return state.profiles[id]
+    }
+}
 
 //to handle actions
 const actions = {
@@ -41,11 +50,11 @@ const mutations = {
     SET_POSTS(state, posts) {
         state.posts = posts
     },
-    SET_USERS(state, posts) {
-        state.posts = posts
+    SET_USERS(state, users) {
+        state.users = users
     },
-    SET_PROFILES(state, posts) {
-        state.posts = posts
+    SET_PROFILES(state, profiles) {
+        state.profiles = profiles
     }
 }
 
