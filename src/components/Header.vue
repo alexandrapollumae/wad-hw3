@@ -11,9 +11,9 @@
         <button type="button">Search</button>
       </div>
       <div class="avatar-container">
-        <img @click="toggleMenu()" v-bind:src="user.avatar" class="avatar">
-        <div v-if="menuClicked" class="drop-down-container">
-          <span id="user-name">{{user.firstname + " " + user.lastname}}</span>
+        <img class="avatar" :src="user.avatar" v-if="user" @click.stop="toggleDropdown">
+        <div v-if="user && showDropdown" @click.stop="" class="drop-down-container">
+          <span id="user-name">{{ user.firstname + " " + user.lastname }}</span>
           <span id="user-email"></span>
           <span class="separator"></span>
           <span>
@@ -36,33 +36,23 @@
 <script>
 export default {
   name: "Header",
-  data() {
-    return {
-      menuClicked: false
-    }
-  },
+
   computed: {
     user: function () {
-      return this.$store.state.user
+      return this.$store.getters.user
+    },
+    showDropdown: function () {
+      return this.$store.getters.dropdown
     }
   },
   methods: {
-    toggleMenu: function() {
-      this.menuClicked = !this.menuClicked
+    toggleDropdown: function() {
+      this.stack.commit("SET_DROPDOWN", !this.showDropdown)
     }
   },
-  mounted: function() {
-    fetch('https://private-517bb-wad20postit.apiary-mock.com/users/1', {
-      method: 'get'
-    })
-        .then((response) => {
-          return response.json()
-        })
-        .then((jsonData) => {
-          this.$store.commit('addUser', jsonData)
-          console.log(this.user)
-        })
-  }
+  mounted() {
+    this.$store.dispatch("getUsers")
+  },
 
 }
 </script>
@@ -124,5 +114,23 @@ export default {
     text-align: right;
   }
 
+  .drop-down-container {
+    position: absolute;
+    min-width: 150px;
+    height: auto;
+    background-color: #ffffff;
+    padding: 10px;
+    right: 0;
+    top: 50px;
+    text-align: left;
+    display: none;
+  }
+  .drop-down-container span{
+    display: block;
+  }
+  .drop-down-container span.separator{
+    border-bottom: 1px solid #d7d7d7;
+    margin: 10px -10px;
+  }
 
 </style>

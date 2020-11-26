@@ -49,7 +49,7 @@ export default {
     }
   },
   mounted() {
-    this.$store.dispatch("getProfiles")
+    this.$store.dispatch("getPosts")
   },
 
   filters: {

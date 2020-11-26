@@ -10,7 +10,8 @@ Vue.use(Vuex);
 const state = {
     posts: [],
     users: '',
-    profiles: []
+    profiles: [],
+    showDropdown: false
 }
 
 //to handle state
@@ -20,7 +21,8 @@ const getters = {
     },
     getProfiles: (state) => (id) => {
         return state.profiles[id]
-    }
+    },
+    dropdown: (state) => state.showDropdown
 }
 
 //to handle actions
@@ -55,6 +57,9 @@ const mutations = {
     },
     SET_PROFILES(state, profiles) {
         state.profiles = profiles
+    },
+    SET_DROPDOWN(state, show){
+        state.showDropdown = show
     }
 }
 
