@@ -11,9 +11,9 @@
         <button type="button">Search</button>
       </div>
       <div class="avatar-container">
-        <img class="avatar">
-        <div class="drop-down-container">
-          <span id="user-name">John Doe</span>
+        <img @click="toggleMenu()" v-bind:src="user.avatar" class="avatar">
+        <div v-if="menuClicked" class="drop-down-container">
+          <span id="user-name">{{user.firstname + " " + user.lastname}}</span>
           <span id="user-email"></span>
           <span class="separator"></span>
           <span>
@@ -31,12 +31,39 @@
       </div>
     </nav>
   </header>
-
 </template>
 
 <script>
 export default {
-  name: "Header"
+  name: "Header",
+  data() {
+    return {
+      menuClicked: false
+    }
+  },
+  computed: {
+    user: function () {
+      return this.$store.state.user
+    }
+  },
+  methods: {
+    toggleMenu: function() {
+      this.menuClicked = !this.menuClicked
+    }
+  },
+  mounted: function() {
+    fetch('https://private-517bb-wad20postit.apiary-mock.com/users/1', {
+      method: 'get'
+    })
+        .then((response) => {
+          return response.json()
+        })
+        .then((jsonData) => {
+          this.$store.commit('addUser', jsonData)
+          console.log(this.user)
+        })
+  }
+
 }
 </script>
 

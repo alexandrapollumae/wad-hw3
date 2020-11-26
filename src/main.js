@@ -5,7 +5,7 @@ import VueRouter from 'vue-router'
 import Header from "@/components/Header";
 import Login from "@/components/Login";
 import Browse from "@/components/Browse";
-import store from './store'
+import store from './store/store'
 
 Vue.config.productionTip = false
 Vue.use(VueRouter);

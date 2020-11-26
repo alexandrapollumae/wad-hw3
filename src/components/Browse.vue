@@ -1,6 +1,5 @@
 <template>
   <section class="main-container">
-    <Header/>
     <div class="profile-feed">
       <div class="profile" v-bind:key="profile.id" v-for="profile in profiles">
         <img v-bind:src =profile.avatar alt = "Post autohor">
@@ -17,12 +16,12 @@
 </template>
 
 <script>
-import Header from "@/components/Header";
+
 
 export default {
   name: "Browse",
   components: {
-    Header
+
   },
   data: function () {
     return {
