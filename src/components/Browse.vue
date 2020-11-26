@@ -38,17 +38,7 @@ export default {
     }
   },
   mounted() {
-    fetch('https://private-anon-8206ed6edc-wad20postit.apiary-mock.com/profiles', {
-      method: 'get'
-    })
-        .then((response) => {
-          return response.json()
-        })
-        .then((jsonData) => {
-          this.$store.commit('addAllProfiles', jsonData)
-          console.log(this.profiles)
-        })
-    this.$store.dispatch("getProfiles")
+    this.$store.dispatch("getPosts")
   }
 }
 </script>

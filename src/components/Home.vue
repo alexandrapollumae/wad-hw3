@@ -48,6 +48,10 @@ export default {
       return this.$store.state.posts
     }
   },
+  mounted() {
+    this.$store.dispatch("getProfiles")
+  },
+
   filters: {
     fullName: function (value, lastname) {
       return value + " " + lastname
