@@ -1,4 +1,6 @@
 <template>
+  <div class="browse">
+  <Header/>
   <section class="main-container">
     <div class="profile-feed">
       <div class="profile" v-bind:key="profile.id" v-for="profile in profiles">
@@ -7,20 +9,22 @@
         <button @click="followed = !followed" v-show="followed" class="follow-button">
           Follow
         </button>
-        <button @click="followed = !followed" v-show="!followed" class="followed-button">
+        <button @click="followed = !followed" v-show="!followed" class="follow-button.followed">
           Followed
         </button>
       </div>
     </div>
   </section>
+  </div>
 </template>
 
 <script>
 
-
+import Header from "@/components/Header";
 export default {
   name: "Browse",
   components: {
+    Header
 
   },
   data: function () {
@@ -34,6 +38,16 @@ export default {
     }
   },
   mounted() {
+    fetch('https://private-anon-8206ed6edc-wad20postit.apiary-mock.com/profiles', {
+      method: 'get'
+    })
+        .then((response) => {
+          return response.json()
+        })
+        .then((jsonData) => {
+          this.$store.commit('addAllProfiles', jsonData)
+          console.log(this.profiles)
+        })
     this.$store.dispatch("getProfiles")
   }
 }
